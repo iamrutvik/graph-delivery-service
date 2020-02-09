@@ -1,0 +1,36 @@
+{
+  "name": "graph-delivery-service",
+  "version": "1.0.0",
+  "description": "Computes the delivery cost of a certain route, the number of possible delivery route between two towns, and the cost of cheapest delivery route between two towns.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -r ts-node/register src/test/*.test.ts",
+    "start:dev": "nodemon",
+    "build": "rimraf ./build && tsc",
+    "start": "npm test && npm run build && node build/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamrutvik/graph-delivery-service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamrutvik/graph-delivery-service/issues"
+  },
+  "homepage": "https://github.com/iamrutvik/graph-delivery-service#readme",
+  "devDependencies": {
+    "@types/chai": "^4.2.8",
+    "@types/mocha": "^7.0.1",
+    "@types/node": "^13.7.0",
+    "chai": "^4.2.0",
+    "expect": "^25.1.0",
+    "mocha": "^7.0.1",
+    "nodemon": "^2.0.2",
+    "rimraf": "^3.0.1",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  }
+}
