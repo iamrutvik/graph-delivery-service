@@ -11,16 +11,16 @@ function isObject(x: any): x is string {
 }
 
 class Graph {
-    private paths: any[];
+    private graph: any[];
 
     constructor() {
-        this.paths = [];
+        this.graph = [];
     }
 
     showGraph() {
-        for(let node of this.paths)  {
-           for(let edge of node.edge){
-               console.log(`${node.source} => ${edge.destination} (${edge.cost})`)
+        for(let vertex of this.graph)  {
+           for(let edge of vertex.edge){
+               console.log(`${vertex.source} => ${edge.destination} (${edge.cost})`)
            }
         }
     }
@@ -49,7 +49,7 @@ class Graph {
             };
 
             //Add node to graph
-            this.paths.push(retrievedVertex);
+            this.graph.push(retrievedVertex);
         }
 
         //Add edge for the node & return node
@@ -58,7 +58,7 @@ class Graph {
 
     /**
      * Add weighted edge for a node
-     * @param {object} node
+     * @param {object} vertex
      * @param {string} destination
      * @param {number} cost
      * @returns {object} new created node with edge
@@ -86,7 +86,7 @@ class Graph {
      * @returns {object} found node
      */
     searchVertex(name: string) {
-        return this.paths.filter(v => v.source === name).pop()
+        return this.graph.filter(v => v.source === name).pop()
     }
 
     /**

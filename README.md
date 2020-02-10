@@ -27,6 +27,7 @@ const graph = new Graph();
 
 let graphData = ["AB1", "AC4", "AD10", "BE3", "CD4", "CF2", "DE1", "EB3", "EA2", "FD1"]
 
+//add vertex to the graph using addVertex method, which takes `source`, `destination` and cost of the edge
 for(let d of graphData){
     let digit = Number(d.slice(2))
     graph.addVertex(d[0],d[1],digit)
@@ -74,9 +75,9 @@ graph.lowestCostRoute('E', 'D').route
 ## Methods
 
 1. showGraph()
-    - Prints Graph on console with vertices and cost of edges
+    - Prints Graph on console with vertices, edge from each vertex and cost of edge
 
-2. addVertex(source: string, destination: string, weight: number)
+2. addVertex(source: string, destination: string, cost: number)
     - Adds vertex to the graph object
     - Returns newly added vertex
         ```typescript
@@ -84,8 +85,8 @@ graph.lowestCostRoute('E', 'D').route
         ```
     - Internally calls `addEdge`
     
-3. addEdge(vertex: { edge: { destination: string; weight: number; }[]; }, destination: string, weight: number)
-    - Add edge to the `destination` from the `vertex` with `weight`
+3. addEdge(vertex: { edge: { destination: string; cost: number; }[]; }, destination: string, cost: number)
+    - Add edge to the `destination` from the `vertex` with `cost`
     - Returns vertex with edges
     - `vertex` is a node object as following:
         ```typescript
@@ -99,7 +100,7 @@ graph.lowestCostRoute('E', 'D').route
     - Returns vertex
     
 5. searchEdge(source: any, destination: string)
-    - Search edge between `source` and `destination` vetices
+    - Search edge between `source` and `destination` vertices
     - Returns edge object
         ```typescript
         { destination: string; cost: number; }
@@ -111,7 +112,7 @@ graph.lowestCostRoute('E', 'D').route
     
 7. allRoutes(source: string, destination: string, conditions ?: object)
     - Takes `source`, `destination` and `conditions`
-    - Mandatory Parameters:  `source` and `destination`
+    - Mandatory Parameters:  `source` and `destination`. Conditions are optional.
     - `conditions` specifies the special conditions to be used while finding routes
         ```typescript
         {
